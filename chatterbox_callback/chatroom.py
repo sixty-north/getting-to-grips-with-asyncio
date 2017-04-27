@@ -1,7 +1,7 @@
 import sys
 import asyncio
 
-from chatterbox.protocol import Protocol, TELNET_EOL
+from chatterbox_callback.protocol import Protocol, TELNET_EOL
 
 
 class ChatRoom:
@@ -48,11 +48,11 @@ class ChatRoom:
 
 
 def main(argv):
-    name = argv[1] if len(argv) >= 2 else "Chatterbox"
+    name = argv[1] if len(argv) >= 2 else "Chatterbox Callbacks"
     port = int(argv[2]) if len(argv) >= 3 else 1234
     loop = asyncio.get_event_loop()
     chat_room = ChatRoom(name, port, loop)
-    server = chat_room.run()
+    chat_room.run()
     loop.run_forever()
 
 
